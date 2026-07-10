@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuestra Historia ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+background:linear-gradient(180deg,#ff8fb1,#ffd6e0);
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+color:white;
+}
+
+.contenedor{
+width:90%;
+max-width:450px;
+text-align:center;
+padding:20px;
+}
+
+#corazon{
+font-size:70px;
+animation:latido 1s infinite;
+margin-bottom:20px;
+}
+
+@keyframes latido{
+0%,100%{transform:scale(1);}
+50%{transform:scale(1.2);}
+}
+
+#mensaje{
+font-size:22px;
+line-height:1.8;
+min-height:170px;
+}
+
+#contador{
+display:none;
+margin-top:30px;
+}
+
+.tarjetas{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-top:20px;
+}
+
+.tarjeta{
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(10px);
+padding:18px;
+border-radius:18px;
+}
+
+.numero{
+font-size:30px;
+font-weight:bold;
+}
+
+.texto{
+font-size:15px;
+}
+
+#fraseFinal{
+display:none;
+margin-top:25px;
+font-size:18px;
+}
+
+button{
+display:none;
+margin-top:25px;
+padding:15px 25px;
+border:none;
+border-radius:40px;
+background:white;
+color:#ff4d88;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+<div id="corazon">❤️</div>
+
+<div id="mensaje"></div>
+
+<div id="contador">
+
+<h2>Llevamos juntos ❤️</h2>
+
+<div class="tarjetas">
+
+<div class="tarjeta">
+<div class="numero" id="meses">0</div>
+<div class="texto">Meses</div>
+</div>
+
+<div class="tarjeta">
+<div class="numero" id="dias">0</div>
+<div class="texto">Días</div>
+</div>
+
+<div class="tarjeta">
+<div class="numero" id="horas">0</div>
+<div class="texto">Horas</div>
+</div>
+
+<div class="tarjeta">
+<div class="numero" id="minutos">0</div>
+<div class="texto">Minutos</div>
+</div>
+
+<div class="tarjeta">
+<div class="numero" id="segundos">0</div>
+<div class="texto">Segundos</div>
+</div>
+
+</div>
+
+<p id="fraseFinal">
+Espero t guste lo q te he hecho con alguito de sueño :(
+</p>
+
+<button id="continuar">
+🫶 Deseo vivir más recuerdos bonitos de los q ya tenemos 🫶
+</button>
+
+</div>
+
+</div>
+<script>
+
+const mensaje1 = "Desde el 8 de marzo que empezamos a interactuar después de tantos intentos, estoy siendo feliz a tu ladito mi titita :(";
+
+const mensaje2 = "Veamos nuestro tiempo juntitos mi niña hermosaa 🫶❤️‍🩹";
+
+const mensaje = document.getElementById("mensaje");
+
+function escribir(texto, velocidad){
+    return new Promise(resolve=>{
+        let i = 0;
+        mensaje.innerHTML = "";
+
+        function escribirLetra(){
+            if(i < texto.length){
+                mensaje.innerHTML += texto.charAt(i);
+                i++;
+                setTimeout(escribirLetra, velocidad);
+            }else{
+                resolve();
+            }
+        }
+
+        escribirLetra();
+    });
+}
+
+async function iniciar(){
+
+    await escribir(mensaje1,40);
+
+    await new Promise(r=>setTimeout(r,2000));
+
+    await escribir(mensaje2,40);
+
+    await new Promise(r=>setTimeout(r,1500));
+
+    document.getElementById("contador").style.display="block";
+
+}
+
+iniciar();
+
+</script>
+
+</body>
+</html>

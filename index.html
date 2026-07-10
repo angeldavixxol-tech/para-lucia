@@ -1,1 +1,115 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi dientitos ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:url("IMG-20260315-WA0077.jpg") center center/cover no-repeat;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+}
+
+.fondo{
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,.45);
+}
+
+.contenido{
+    position:relative;
+    text-align:center;
+    color:white;
+    padding:25px;
+    z-index:2;
+}
+
+h1{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+p{
+    font-size:22px;
+    line-height:1.6;
+    margin-bottom:30px;
+}
+
+button{
+    padding:15px 35px;
+    font-size:20px;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+}
+
+.corazon{
+    position:absolute;
+    color:#ff5c8a;
+    animation:subir 8s linear infinite;
+}
+
+@keyframes subir{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-120vh);
+        opacity:1;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="fondo"></div>
+
+<div class="contenido">
+<h1>Mi dientitos ❤️</h1>
+
+<p>
+Si estás viendo esto...<br><br>
+es porque preparé algo muy especial para ti.
+</p>
+
+<button onclick="alert('❤️ Continúa... ❤️')">
+Comenzar
+</button>
+
+</div>
+
+<script>
+function crearCorazon(){
+let c=document.createElement("div");
+c.className="corazon";
+c.innerHTML="❤️";
+c.style.left=Math.random()*100+"vw";
+c.style.fontSize=(20+Math.random()*35)+"px";
+c.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(c);
+setTimeout(()=>c.remove(),9000);
+}
+
+setInterval(crearCorazon,300);
+</script>
+
+</body>
+</html>

@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Nuestra Historia ❤️</title>
 
 <style>
@@ -16,19 +17,19 @@ font-family:Arial,Helvetica,sans-serif;
 
 body{
 background:linear-gradient(180deg,#ff8fb1,#ffd6e0);
-overflow:hidden;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
+min-height:100vh;
+overflow-x:hidden;
 color:white;
+padding:20px;
 }
 
 .contenedor{
-width:90%;
-max-width:450px;
+width:100%;
+max-width:500px;
 text-align:center;
-padding:20px;
 }
 
 #corazon{
@@ -38,19 +39,24 @@ margin-bottom:20px;
 }
 
 @keyframes latido{
-0%,100%{transform:scale(1);}
-50%{transform:scale(1.2);}
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.2);
+}
 }
 
 #mensaje{
 font-size:22px;
 line-height:1.8;
 min-height:170px;
+margin-bottom:25px;
 }
 
 #contador{
 display:none;
-margin-top:30px;
 }
 
 .tarjetas{
@@ -63,8 +69,8 @@ margin-top:20px;
 .tarjeta{
 background:rgba(255,255,255,.18);
 backdrop-filter:blur(10px);
+border-radius:20px;
 padding:18px;
-border-radius:18px;
 }
 
 .numero{
@@ -80,12 +86,13 @@ font-size:15px;
 display:none;
 margin-top:25px;
 font-size:18px;
+line-height:1.7;
 }
 
-button{
+#continuar{
 display:none;
 margin-top:25px;
-padding:15px 25px;
+padding:15px 22px;
 border:none;
 border-radius:40px;
 background:white;
@@ -93,9 +100,14 @@ color:#ff4d88;
 font-size:17px;
 font-weight:bold;
 cursor:pointer;
+transition:.3s;
+}
+#continuar:hover{
+transform:scale(1.05);
 }
 
 </style>
+
 </head>
 
 <body>
@@ -108,7 +120,7 @@ cursor:pointer;
 
 <div id="contador">
 
-<h2>Llevamos juntos ❤️</h2>
+<h2>Veamos nuestro tiempo juntitos mi niña hermosaa 🫶❤️‍🩹</h2>
 
 <div class="tarjetas">
 
@@ -150,31 +162,81 @@ Espero t guste lo q te he hecho con alguito de sueño :(
 </div>
 
 </div>
+
 <script>
 
-const mensaje1 = "Desde el 8 de marzo que empezamos a interactuar después de tantos intentos, estoy siendo feliz a tu ladito mi titita :(";
+const mensaje1 = "Desde el 8 de marzo q empezamos a interactuar después de tantos intentos, estoy siendo feliz a tu ladito mi titita:(";
 
-const mensaje2 = "Veamos nuestro tiempo juntitos mi niña hermosaa 🫶❤️‍🩹";
+const mensaje2 = "Veamos nuestro tiempo juntitos mi niña hermosaa🫶❤️‍🩹";
 
 const mensaje = document.getElementById("mensaje");
 
 function escribir(texto, velocidad){
-    return new Promise(resolve=>{
-        let i = 0;
-        mensaje.innerHTML = "";
 
-        function escribirLetra(){
-            if(i < texto.length){
-                mensaje.innerHTML += texto.charAt(i);
-                i++;
-                setTimeout(escribirLetra, velocidad);
-            }else{
-                resolve();
-            }
-        }
+return new Promise(resolve=>{
 
-        escribirLetra();
-    });
+let i=0;
+
+mensaje.innerHTML="";
+
+function escribirLetra(){
+
+if(i<texto.length){
+
+mensaje.innerHTML+=texto.charAt(i);
+
+i++;
+
+setTimeout(escribirLetra,velocidad);
+
+}else{
+
+resolve();
+
+}
+
+}
+
+escribirLetra();
+
+});
+
+}
+const fechaInicio = new Date("2026-03-08T00:00:00");
+
+function actualizarContador(){
+
+    const ahora = new Date();
+
+    let meses = (ahora.getFullYear() - fechaInicio.getFullYear()) * 12;
+    meses += ahora.getMonth() - fechaInicio.getMonth();
+
+    let fechaMes = new Date(fechaInicio);
+    fechaMes.setMonth(fechaMes.getMonth() + meses);
+
+    if(fechaMes > ahora){
+        meses--;
+        fechaMes = new Date(fechaInicio);
+        fechaMes.setMonth(fechaMes.getMonth() + meses);
+    }
+
+    let diferencia = ahora - fechaMes;
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    diferencia %= (1000 * 60 * 60 * 24);
+
+    const horas = Math.floor(diferencia / (1000 * 60 * 60));
+    diferencia %= (1000 * 60 * 60);
+
+    const minutos = Math.floor(diferencia / (1000 * 60));
+
+    const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+    document.getElementById("meses").textContent = meses;
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
 }
 
 async function iniciar(){
@@ -189,11 +251,18 @@ async function iniciar(){
 
     document.getElementById("contador").style.display="block";
 
+    actualizarContador();
+
+    setInterval(actualizarContador,1000);
+
+    document.getElementById("fraseFinal").style.display="block";
+
+    document.getElementById("continuar").style.display="inline-block";
+
 }
 
 iniciar();
-
 </script>
 
 </body>
-</html
+</html>

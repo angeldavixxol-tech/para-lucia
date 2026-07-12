@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Un momento...</title>
+
+<style>
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#ff8fb1,#ffd6e0);
+font-family:Arial,sans-serif;
+text-align:center;
+color:white;
+}
+
+.caja{
+max-width:500px;
+padding:30px;
+}
+
+h1{
+font-size:32px;
+margin-bottom:20px;
+}
+
+p{
+font-size:20px;
+line-height:1.6;
+margin-bottom:30px;
+}
+
+button{
+padding:15px 30px;
+border:none;
+border-radius:30px;
+font-size:18px;
+cursor:pointer;
+margin:10px;
+background:white;
+color:#ff4d88;
+font-weight:bold;
+}
+
+audio{
+display:none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="caja">
+
+<h1>❤️ Antes de empezar... ❤️</h1>
+
+<p>
+Solo te pido unos minutos.<br>
+Preparé todo esto con muchísimo cariño para ti.
+</p>
+
+<button onclick="reproducirAudio()">
+🎙️ Escúchame primero
+</button>
+
+<br>
+
+<button id="continuar" style="display:none;"
+onclick="location.href='historia.html'">
+❤️ Continuar ❤️
+</button>
+
+<audio id="audio">
+<source src="audio.wav" type="audio/wav">
+</audio>
+
+</div>
+
+<script>
+const audio=document.getElementById("audio");
+const boton=document.getElementById("continuar");
+
+function reproducirAudio(){
+audio.play();
+}
+
+audio.onended=function(){
+boton.style.display="inline-block";
+}
+</script>
+
+</body>
+</html>

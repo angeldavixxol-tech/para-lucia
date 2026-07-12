@@ -7,62 +7,32 @@
 <title>Nuestros recuerdos ❤️</title>
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, sans-serif;
-}
-
 body{
-background:linear-gradient(180deg,#ff8fb1,#ffd6e0);
+margin:0;
+padding:20px;
+background:linear-gradient(#ff8fb1,#ffd6e0);
+font-family:Arial;
 color:white;
-min-height:100vh;
 text-align:center;
-padding:25px;
 }
 
 h1{
-margin-bottom:15px;
-}
-
-p{
-font-size:18px;
-margin-bottom:25px;
+font-size:28px;
 }
 
 .galeria{
 display:flex;
 flex-direction:column;
-gap:25px;
+gap:20px;
 align-items:center;
 }
 
-.recuerdo{
+img{
 width:90%;
 max-width:400px;
-background:white;
-padding:10px;
 border-radius:20px;
-box-shadow:0 5px 15px rgba(0,0,0,.2);
-animation:aparecer 1s ease;
-}
-
-.recuerdo img,
-.recuerdo video{
-width:100%;
-border-radius:15px;
-}
-
-@keyframes aparecer{
-from{
-opacity:0;
-transform:translateY(30px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+background:white;
+padding:8px;
 }
 
 button{
@@ -70,10 +40,8 @@ margin-top:30px;
 padding:15px 25px;
 border:none;
 border-radius:30px;
-background:white;
 color:#ff4d88;
-font-size:17px;
-font-weight:bold;
+font-size:18px;
 }
 </style>
 
@@ -81,42 +49,23 @@ font-weight:bold;
 
 <body>
 
-<h1>Nuestros recuerdos más bonitos ❤️</h1>
+<h1>Nuestros recuerdos ❤️</h1>
 
-<p>
-Cada fotito guarda un momento de nosotros 🫶
-</p>
-
+<p>Cada momento contigo es especial 🫶</p>
 
 <div class="galeria">
 
-<div class="recuerdo">
-<img src="fotos/foto1.jpg">
-</div>
-
-<div class="recuerdo">
-<img src="fotos/foto2.jpg">
-</div>
-
-<div class="recuerdo">
-<img src="fotos/foto3.jpg">
-</div>
-
-<div class="recuerdo">
-<img src="fotos/foto4.jpg">
-</div>
-
-<div class="recuerdo">
-<img src="fotos/foto5.jpg">
-</div>
+<img src="fotos/IMG-20260711-WA0017.jpg">
+<img src="fotos/IMG-20260711-WA0018.jpg">
+<img src="fotos/IMG-20260711-WA0019.jpg">
+<img src="fotos/IMG-20260711-WA0020.jpg">
+<img src="fotos/IMG-20260711-WA0021.jpg">
 
 </div>
 
-
-<button>
-❤️ Seguir con nuestra historia ❤️
+<button onclick="location.href='final.html'">
+❤️ Continuar ❤️
 </button>
-
 
 </body>
 </html>

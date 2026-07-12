@@ -55,17 +55,36 @@ font-size:18px;
 
 <div class="galeria">
 
-<img src="fotos/IMG-20260711-WA0017.jpg">
-<img src="fotos/IMG-20260711-WA0018.jpg">
-<img src="fotos/IMG-20260711-WA0019.jpg">
-<img src="fotos/IMG-20260711-WA0020.jpg">
-<img src="fotos/IMG-20260711-WA0021.jpg">
-
 </div>
 
 <button onclick="location.href='final.html'">
 ❤️ Continuar ❤️
 </button>
+<script src="fotos.js"></script>
 
+<script>
+const galeria = document.querySelector(".galeria");
+galeria.innerHTML = "";
+
+archivos.forEach(archivo => {
+
+  if (archivo.endsWith(".mp4")) {
+
+    galeria.innerHTML += `
+      <video controls>
+        <source src="fotos/${archivo}" type="video/mp4">
+      </video>
+    `;
+
+  } else {
+
+    galeria.innerHTML += `
+      <img src="fotos/${archivo}">
+    `;
+
+  }
+
+});
+</script>
 </body>
 </html>

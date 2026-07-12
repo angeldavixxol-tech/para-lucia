@@ -21,19 +21,25 @@ font-size:28px;
 }
 
 .galeria{
-display:flex;
-flex-direction:column;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
-align-items:center;
+padding:20px;
+} 
+
+img,
+video{
+width:100%;
+border-radius:18px;
+display:block;
+box-shadow:0 8px 20px rgba(0,0,0,.25);
+transition:.3s;
 }
 
-img{
-width:90%;
-max-width:400px;
-border-radius:20px;
-background:white;
-padding:8px;
-}
+img:hover,
+video:hover{
+transform:scale(1.03);
+} 
 
 button{
 margin-top:30px;

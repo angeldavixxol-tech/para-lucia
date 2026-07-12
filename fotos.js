@@ -1,0 +1,7 @@
+const archivos = [
+  "IMG-20260711-WA0017.jpg",
+  "IMG-20260711-WA0018.jpg",
+  "IMG-20260711-WA0019.jpg",
+  "IMG-20260711-WA0020.jpg",
+  "IMG-20260711-WA0021.jpg"
+];
